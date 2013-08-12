@@ -3,32 +3,19 @@
     <body>
         <h1>Smartass phrase of the day</h1>
         <?php
-        $phrases = array(
-            "When one follows conclusion and enlightenment, one is able to hurt politics.",
-            "When one respects mind and enlightenment, one is able to love beauty.",
-            "One must believe the lama in order to receive the master of imminent affirmation.",
-            "Who can experience the blessing and booda-hood of a doer if he has the searious peace of the self.",
-            "Synthetic zens views most harmonies.",
-            "Who can understand the afterlife and booda-hood of a source if he has the important extend of the lotus.",
-            "Be occult for whoever listens, because each has been absorbed with relativity.",
-            "One must believe the yogi in order to absorb the saint of separate control.",
-            "One must develop the master in order to remember the explosion of the courage of ultimate advice!",
-            "Who can trap the heaven and surrender of a master if he has the wonderful history of the guru."
-        );
+        require_once __DIR__."/model/GuruPhrases.php";
+        $phrases = new GuruPhrases();
         if ($_GET['index']) {
-            $choosen_one = $_GET['index'];
+            $phrase = $phrases->get($_GET['index']);
+            if (is_null($phrase)) {
+                $phrase = "Ops... this one doesn't exist.";
+            }
         } else {
-            $choosen_one = rand(0, count($phrases) - 1);
-        }
-        if ($choosen_one < count($phrases)) {
-            $phrase = "$choosen_one. $phrases[$choosen_one]";
-        } else {
-            $phrase = "Ops... this one doesn't exist.";
+            $phrase = $phrases->getRandom();
         }
         ?>
         <p><?= $phrase ?></p>
-
-        <p><a href="">I want another random one</a></p>
+        <p><a href="guru.php">I want another random one</a></p>
         <p>or</p>
         <form method="get" action="">
             <label for="index">Choose a phrase by number:</label>

@@ -8,8 +8,12 @@
 abstract class Phrases {
     protected $phrases;
 
-    public function get() {
+    public function get($index) {
+        return "$index. {$this->phrases[$index]}";
+    }
+
+    public function getRandom() {
         $choosen_one = rand(0, count($this->phrases) - 1);
-        return $this->phrases[$choosen_one];
+        return $this->get($choosen_one);
     }
 }
