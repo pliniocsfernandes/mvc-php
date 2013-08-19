@@ -7,22 +7,20 @@
  */
 class DefaultController {
     public function pirateAction() {
-        require_once __DIR__."/../model/PiratePhrases.php";
-        $phrases = new PiratePhrases();
-        if ($_GET['index']) {
-            $phrase = $phrases->get($_GET['index']);
-            if (is_null($phrase)) {
-                $phrase = "Ops... this one doesn't exist.";
-            }
-        } else {
-            $phrase = $phrases->getRandom();
-        }
+        $phrase = $this->phrase('Pirate');
         return array('phrase' => $phrase);
     }
 
     public function guruAction() {
-        require_once __DIR__."/../model/GuruPhrases.php";
-        $phrases = new GuruPhrases();
+        $phrase = $this->phrase('Guru');
+        return array('phrase' => $phrase);
+    }
+
+    private function phrase($type) {
+        $className = $type . "Phrases";
+        require_once __DIR__."/../model/$className.php";
+        /** @var Phrases $phrases */
+        $phrases = new $className();
         if ($_GET['index']) {
             $phrase = $phrases->get($_GET['index']);
             if (is_null($phrase)) {
@@ -31,6 +29,6 @@ class DefaultController {
         } else {
             $phrase = $phrases->getRandom();
         }
-        return array('phrase' => $phrase);
+        return $phrase;
     }
 }
