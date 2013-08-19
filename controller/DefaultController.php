@@ -21,6 +21,10 @@ class DefaultController extends Controller{
         $this->render("home.php");
     }
 
+    public function notFoundAction() {
+        $this->render("404.html");
+    }
+
     private function phrase($type) {
         $className = $type . "Phrases";
         require_once __DIR__."/../model/$className.php";

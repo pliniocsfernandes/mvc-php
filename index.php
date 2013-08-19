@@ -25,7 +25,8 @@ switch ($_GET['route']) {
         $action = "guru";
         break;
     default:
-        die("Route not found"); //FIXME Yuck....
+        $controller = "Default";
+        $action = "notfound";
 }
 
 $controller .= "Controller";
