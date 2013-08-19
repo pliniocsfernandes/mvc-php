@@ -22,6 +22,6 @@ switch ($_GET['route']) {
         require __DIR__."/guru.php";
         break;
     default:
-        echo "Route not found";
+        die("Route not found"); //FIXME Yuck....
 }
 
