@@ -5,8 +5,8 @@
 
         <p>Choose your destiny!</p>
         <ul>
-            <li><a href="pirate.php">I Be Pirate Captein</a></li>
-            <li><a href="guru.php">Be a Smartass</a></li>
+            <li><a href="<?= $base_url ?>pirate">I Be Pirate Captein</a></li>
+            <li><a href="<?= $base_url ?>guru">Be a Smartass</a></li>
         </ul>
         <p>
             <small>
