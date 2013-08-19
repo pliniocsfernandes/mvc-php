@@ -13,15 +13,24 @@ if ($_GET['route']);
 switch ($_GET['route']) {
     case "":
     case "home":
-        require __DIR__ . "/view/home.php";
+        $controller = "Default";
+        $action = "home";
         break;
     case "pirate":
-        require __DIR__ . "/view/pirate.php";
+        $controller = "Default";
+        $action = "pirate";
         break;
     case "guru":
-        require __DIR__ . "/view/guru.php";
+        $controller = "Default";
+        $action = "guru";
         break;
     default:
         die("Route not found"); //FIXME Yuck....
 }
 
+$controller .= "Controller";
+$action .= "Action";
+
+require_once __DIR__ . "/controller/{$controller}.php";
+$controller = new $controller($base_url);
+$controller->$action();

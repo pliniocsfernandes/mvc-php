@@ -1,19 +1,24 @@
 <?php
+require_once __DIR__ . "/../core/Controller.php";
 /**
  * Class DefaultController
  *
  * A simple controller class
  * Controllers extend the base Controller class for view processing methods
  */
-class DefaultController {
+class DefaultController extends Controller{
     public function pirateAction() {
         $phrase = $this->phrase('Pirate');
-        return array('phrase' => $phrase);
+        $this->render('pirate.php', array('phrase' => $phrase));
     }
 
     public function guruAction() {
         $phrase = $this->phrase('Guru');
-        return array('phrase' => $phrase);
+        $this->render('guru.php', array('phrase' => $phrase));
+    }
+
+    public function homeAction() {
+        $this->render("home.php");
     }
 
     private function phrase($type) {

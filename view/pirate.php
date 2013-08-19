@@ -1,9 +1,3 @@
-<?php
-require __DIR__ . '/../controller/DefaultController.php';
-$controller = new DefaultController();
-$data = $controller->pirateAction();
-$phrase = $data['phrase'];
-?>
 <!DOCTYPE html>
 <html>
     <body>
