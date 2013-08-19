@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/Phrases.php";
+require_once __DIR__ . "/Phrases.php";
 
 class PiratePhrases extends Phrases {
     function __construct() {

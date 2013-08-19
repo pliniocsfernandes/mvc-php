@@ -17,7 +17,7 @@ class Router {
         $route = $route ? $route : "";
 
         //loading array that contains the routes from config file
-        $routes = require __DIR__ . '/../config/routes.inc.php';
+        $routes = require_once __DIR__ . '/../config/routes.inc.php';
 
         if (array_key_exists($route, $routes)) {
             $controllerName = $routes[$route]['controller'];

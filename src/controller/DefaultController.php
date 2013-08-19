@@ -27,7 +27,7 @@ class DefaultController extends Controller{
 
     private function phrase($type) {
         $className = $type . "Phrases";
-        require_once __DIR__."/../model/$className.php";
+        require_once __DIR__ . "/../model/$className.php";
         /** @var Phrases $phrases */
         $phrases = new $className();
         if ($_GET['index']) {

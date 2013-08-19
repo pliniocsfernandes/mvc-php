@@ -28,6 +28,6 @@ abstract class Controller {
     protected function render($view, $variables = array()) {
         $variables['base_url'] = $this->baseUrl;
         extract($variables);
-        require __DIR__ . "/../view/$view"; //FIXME possible security flaw
+        require_once __DIR__ . "/../view/$view"; //FIXME possible security flaw
     }
 }

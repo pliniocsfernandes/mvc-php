@@ -1,10 +1,10 @@
 <?php
 //Using /mvc-php/ for acessing it via http://localhost/mvc-php/
-$base_url = '/mvc-php/';
+$base_url = '/mvc-php/public/';
 // Comment the following line to use it with apache rewrite
-$base_url .= 'index.php?route=';
+//$base_url .= 'index.php?route=';
 
-require_once __DIR__ . "/core/Router.php";
+require_once __DIR__ . "/../src/core/Router.php";
 
 $route = $_GET['route'];
 

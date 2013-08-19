@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/Phrases.php";
+require_once __DIR__ . "/Phrases.php";
 
 class GuruPhrases extends Phrases {
     function __construct() {
