@@ -1,37 +1,14 @@
 <?php
-/**
- * Using /mvc-php/ for acessing it via http://localhost/mvc-php/
- */
+//Using /mvc-php/ for acessing it via http://localhost/mvc-php/
 $base_url = '/mvc-php/';
-/**
- * Comment the following line to use it with apache rewrite
- */
+// Comment the following line to use it with apache rewrite
 $base_url .= 'index.php?route=';
 
-if ($_GET['route']);
+require_once __DIR__ . "/core/Router.php";
 
-switch ($_GET['route']) {
-    case "":
-    case "home":
-        $controller = "Default";
-        $action = "home";
-        break;
-    case "pirate":
-        $controller = "Default";
-        $action = "pirate";
-        break;
-    case "guru":
-        $controller = "Default";
-        $action = "guru";
-        break;
-    default:
-        $controller = "Default";
-        $action = "notfound";
-}
+$route = $_GET['route'];
 
-$controller .= "Controller";
-$action .= "Action";
-
-require_once __DIR__ . "/controller/{$controller}.php";
-$controller = new $controller($base_url);
-$controller->$action();
+//create the router instance with the route given by the user
+$router = new Router($base_url);
+$router->prepare($route);
+$router->execute();
