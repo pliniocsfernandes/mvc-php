@@ -1,19 +1,13 @@
+<?php
+require __DIR__.'/controller/DefaultController.php';
+$controller = new DefaultController();
+$data = $controller->pirateAction();
+$phrase = $data['phrase'];
+?>
 <!DOCTYPE html>
 <html>
     <body>
         <h1>Yer daily pirate phrases</h1>
-        <?php
-        require_once __DIR__."/model/PiratePhrases.php";
-        $phrases = new PiratePhrases();
-        if ($_GET['index']) {
-            $phrase = $phrases->get($_GET['index']);
-            if (is_null($phrase)) {
-                $phrase = "Ops... this one doesn't exist.";
-            }
-        } else {
-            $phrase = $phrases->getRandom();
-        }
-        ?>
         <p><?= $phrase ?></p>
         <p><a href="pirate.php">I want another random one</a></p>
         <p>or</p>

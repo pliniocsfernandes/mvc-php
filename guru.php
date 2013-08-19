@@ -1,19 +1,13 @@
+<?php
+require __DIR__.'/controller/DefaultController.php';
+$controller = new DefaultController();
+$data = $controller->guruAction();
+$phrase = $data['phrase'];
+?>
 <!DOCTYPE html>
 <html>
     <body>
         <h1>Smartass phrase of the day</h1>
-        <?php
-        require_once __DIR__."/model/GuruPhrases.php";
-        $phrases = new GuruPhrases();
-        if ($_GET['index']) {
-            $phrase = $phrases->get($_GET['index']);
-            if (is_null($phrase)) {
-                $phrase = "Ops... this one doesn't exist.";
-            }
-        } else {
-            $phrase = $phrases->getRandom();
-        }
-        ?>
         <p><?= $phrase ?></p>
         <p><a href="guru.php">I want another random one</a></p>
         <p>or</p>
