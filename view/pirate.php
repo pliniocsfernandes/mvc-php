@@ -1,15 +1,15 @@
 <?php
-require __DIR__.'/controller/DefaultController.php';
+require __DIR__ . '/../controller/DefaultController.php';
 $controller = new DefaultController();
-$data = $controller->guruAction();
+$data = $controller->pirateAction();
 $phrase = $data['phrase'];
 ?>
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Smartass phrase of the day</h1>
+        <h1>Yer daily pirate phrases</h1>
         <p><?= $phrase ?></p>
-        <p><a href="<?= $base_url ?>guru">I want another random one</a></p>
+        <p><a href="<?= $base_url ?>pirate">I want another random one</a></p>
         <p>or</p>
         <form method="get" action="">
             <label for="index">Choose a phrase by number:</label>

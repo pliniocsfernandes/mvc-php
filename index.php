@@ -13,13 +13,13 @@ if ($_GET['route']);
 switch ($_GET['route']) {
     case "":
     case "home":
-        require __DIR__."/home.php";
+        require __DIR__ . "/view/home.php";
         break;
     case "pirate":
-        require __DIR__."/pirate.php";
+        require __DIR__ . "/view/pirate.php";
         break;
     case "guru":
-        require __DIR__."/guru.php";
+        require __DIR__ . "/view/guru.php";
         break;
     default:
         die("Route not found"); //FIXME Yuck....
